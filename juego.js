@@ -53,7 +53,7 @@ const challenges = {
       description:
         "Mientras más raro quede, más se ríen. Eso también cuenta como éxito.",
       prompt:
-        "Un integrante recibe una palabra relacionada con el humor, la dibuja y sus compañeros deben adivinar la palabra.",
+        "Un integrante recibe una palabra, la dibuja y sus compañeros deben adivinar que representa.",
       time: 50,
       points: 150,
       icon: "🤣",

@@ -134,7 +134,7 @@ main{
     flex-direction: column;
     align-items: center;
     margin-top: 10px;
-    margin-bottom: 2%;
+    margin-bottom: 50px;
 }
 .contenido{
     width: 50%;
@@ -180,4 +180,21 @@ main{
 
 .siguiente:active{
   transform: scale(0.96);
+}
+footer {
+  margin-top: auto;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  background-color: var(--color-2);
+  color: var(--color-negro);
+}
+
+footer img{
+  width: 110px;
+  height: auto;
 }
