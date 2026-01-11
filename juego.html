@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="juegostyle.css" />
+    <link rel="icon" type="image/png" href="img/Icono.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+    <title>Ubuntu</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <h1>🌟 El Libro de la Alegría 🌟</h1>
+        <p>
+          Un juego de trabajo en equipo inspirado en el Dalai Lama y Desmond
+          Tutu
+        </p>
+        <p class="quote">"La alegría está en darnos a los demás"</p>
+      </div>
+
+      <div class="scoreboard">
+        <div class="team-card team1" id="team1Card">
+          <div class="team-header">
+            <div class="team-name">👥 Equipo 1</div>
+            <div class="team-score" id="score1">0</div>
+          </div>
+          <div class="team-info">Casilla: <span id="pos1">1</span></div>
+        </div>
+
+        <div class="team-card team2" id="team2Card">
+          <div class="team-header">
+            <div class="team-name">👥 Equipo 2</div>
+            <div class="team-score" id="score2">0</div>
+          </div>
+          <div class="team-info">Casilla: <span id="pos2">1</span></div>
+        </div>
+      </div>
+
+      <div class="game-area">
+        <div class="board-container">
+          <div class="board" id="board"></div>
+        </div>
+
+        <div class="control-panel">
+          <div class="current-turn">
+            <h3>Turno del</h3>
+            <div class="turn-team" id="currentTeamDisplay">Equipo 1</div>
+          </div>
+
+          <div class="dice-container">
+            <div class="dice" id="dice" onclick="rollDice()">
+              <div class="dice-value" id="diceValue">1</div>
+            </div>
+            <button class="roll-btn" id="rollBtn" onclick="rollDice()">
+              🎲 Lanzar Dado
+            </button>
+          </div>
+          <div class="pillars-info">
+            <h4>🧠 Pilares de la Mente:</h4>
+            <div class="pillar-item">🔍 Perspectiva</div>
+            <div class="pillar-item">🙏 Humildad</div>
+            <div class="pillar-item">😄 Humor</div>
+            <div class="pillar-item">🌊 Aceptación</div>
+
+            <h4 style="margin-top: 15px">❤️ Pilares del Corazón:</h4>
+            <div class="pillar-item">🕊️ Perdón</div>
+            <div class="pillar-item">🙌 Gratitud</div>
+            <div class="pillar-item">💝 Compasión</div>
+            <div class="pillar-item">🎁 Generosidad</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de desafío -->
+    <div class="modal" id="challengeModal">
+      <div class="modal-content" id="modalContent">
+        <div class="modal-header">
+          <div class="modal-icon" id="modalIcon"></div>
+          <div class="modal-title" id="modalTitle"></div>
+          <div class="timer" id="timer">⏱️ <span id="timeLeft">30</span>s</div>
+        </div>
+
+        <div class="challenge-content">
+          <div class="challenge-description" id="challengeDescription"></div>
+          <div class="challenge-prompt" id="challengePrompt"></div>
+        </div>
+
+        <div class="challenge-points">
+          ⭐ <span id="challengePoints"></span> puntos
+        </div>
+        <button class="modal-btn btn-timer" onclick="startModalTimer()">
+          ⏳ Iniciar Tiempo
+        </button>
+
+        <div class="modal-buttons">
+          <button
+            class="modal-btn btn-success"
+            onclick="completeChallenge(true)"
+          >
+            ✅ ¡Completado!
+          </button>
+          <button class="modal-btn btn-fail" onclick="completeChallenge(false)">
+            ❌ No Completado
+          </button>
+        </div>
+      </div>
+    </div>
+    <script src="juego.js"></script>
+  </body>
+</html>
