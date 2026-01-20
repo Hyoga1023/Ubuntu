@@ -350,8 +350,9 @@ body {
 }
 
 .modal-icon {
-  font-size: 5em;
-  margin-bottom: 15px;
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
 }
 
 .modal-title {
@@ -530,6 +531,109 @@ body {
 .union {
   background: linear-gradient(135deg, #8b5cf6, #ec4899);
 }
+.icon {
+  width: 60px;
+  height: 60px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+
+/* ===== ICONOS DEL TABLERO ===== */
+
+.icon-humildad {
+  background-image: url("img/humildad.png");
+}
+
+.icon-union {
+  background-image: url("img/union.png");
+}
+
+.icon-humor {
+  background-image: url("img/humor.png");
+}
+
+.icon-aceptacion {
+  background-image: url("img/aceptacion.png");
+}
+
+.icon-obstaculo {
+  background-image: url("img/obstaculo.png");
+}
+
+.icon-inicio::after {
+  content: "🏁";
+}
+
+.icon-perspectiva::after {
+  content: "🔍";
+}
+
+.icon-generosidad::after {
+  content: "🎁";
+}
+
+.icon-meta::after {
+  content: "🏆";
+}
+
+.icon-perdon {
+  background-image: url("img/perdon.png");
+}
+
+.icon-gratitud {
+  background-image: url("img/gratitud.png");
+}
+
+.icon-compasion {
+  background-image: url("img/compasion.png");
+}
+
+.icon-generosidad {
+  background-image: url("img/generosidad.png");
+}
+
+/* Opcionales */
+.icon-perspectiva {
+  background-image: url("img/perspectiva.png");
+}
+
+.icon-inicio {
+  background-image: url("img/inicio.png");
+}
+
+.icon-meta {
+  background-image: url("img/meta.png");
+}
+/* Casilla trampa*/
+.trampa {
+  background: linear-gradient(135deg, #f97316, #ea580c);
+}
+
+.icon-trampa::after {
+  content: "😈";
+  font-size: 2em;
+}
+/* Casilla Reto en Equipo */
+.retoequipo {
+  background: linear-gradient(135deg, #f59e0b, #dc2626);
+}
+
+.icon-retoequipo::after {
+  content: "⚔️";
+  font-size: 2em;
+}
+/* Casilla Lo Contrario */
+.locontrario {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+.icon-locontrario::after {
+  content: "🔄";
+  font-size: 2em;
+}
+
 footer {
   margin-top: auto;
   width: 100%;
