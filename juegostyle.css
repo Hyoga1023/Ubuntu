@@ -50,14 +50,14 @@ body {
 
 .header p {
   color: var(--color-1);
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
 
 .header .quote {
   margin-top: 15px;
   font-style: italic;
   color: var(--color-1);
-  font-size: 1.1em;
+  font-size: 1.5em;
 }
 
 .scoreboard {
