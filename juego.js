@@ -23,16 +23,20 @@ const challenges = {
   perspectiva: [
     {
       title: "Perspectiva",
-      description: "Porque una buena idea también se puede dibujar, aunque no seas artista.",
-      prompt: "Un integrante recibe una palabra por chat interno y la representa visualmente. El equipo intenta adivinar antes de que termine el tiempo.",
+      description:
+        "Porque una buena idea también se puede dibujar, aunque no seas artista.",
+      prompt:
+        "Un integrante recibe una palabra por chat interno y la representa visualmente. El equipo intenta adivinar antes de que termine el tiempo.",
       time: 60,
       points: 150,
       icon: "🎨",
     },
     {
       title: "Perspectiva",
-      description: "Aquí se mide la capacidad de representar ideas sin decir ni una palabra.",
-      prompt: "Un integrante recibe por chat interno un concepto abstracto. Lo representa y el equipo intenta descifrarlo.",
+      description:
+        "Aquí se mide la capacidad de representar ideas sin decir ni una palabra.",
+      prompt:
+        "Un integrante recibe por chat interno un concepto abstracto. Lo representa y el equipo intenta descifrarlo.",
       time: 60,
       points: 160,
       icon: "🧠",
@@ -42,7 +46,8 @@ const challenges = {
     {
       title: "Humildad",
       description: "Reconocer nuestras limitaciones también puede dibujarse.",
-      prompt: "Un integrante recibe una palabra relacionada con humildad y la representa visualmente. El equipo intenta adivinar.",
+      prompt:
+        "Un integrante recibe una palabra relacionada con humildad y la representa visualmente. El equipo intenta adivinar.",
       time: 55,
       points: 140,
       icon: "🙏",
@@ -52,7 +57,8 @@ const challenges = {
     {
       title: "Humor - Desastre Visual Controlado",
       description: "Mientras más raro quede, mejor.",
-      prompt: "Un integrante recibe una palabra, la dibuja y sus compañeros deben adivinar que representa.",
+      prompt:
+        "Un integrante recibe una palabra, la dibuja y sus compañeros deben adivinar que representa.",
       time: 50,
       points: 150,
       icon: "🤣",
@@ -61,8 +67,10 @@ const challenges = {
   aceptacion: [
     {
       title: "Aceptación",
-      description: "Aceptar realidades también puede verse reflejado con trazos y creatividad.",
-      prompt: "Un integrante recibe una palabra relacionada con aceptación y la representa visualmente. El equipo intenta descifrarla.",
+      description:
+        "Aceptar realidades también puede verse reflejado con trazos y creatividad.",
+      prompt:
+        "Un integrante recibe una palabra relacionada con aceptación y la representa visualmente. El equipo intenta descifrarla.",
       time: 55,
       points: 150,
       icon: "🌊",
@@ -71,8 +79,10 @@ const challenges = {
   perdon: [
     {
       title: "Perdón",
-      description: "Aquí se representa el acto de liberar carga emocional… versión dibujo casero.",
-      prompt: "Un integrante recibe una palabra relacionada con perdón y la representa. El equipo debe adivinar.",
+      description:
+        "Aquí se representa el acto de liberar carga emocional… versión dibujo casero.",
+      prompt:
+        "Un integrante recibe una palabra relacionada con perdón y la representa. El equipo debe adivinar.",
       time: 55,
       points: 150,
       icon: "🕊️",
@@ -82,7 +92,8 @@ const challenges = {
     {
       title: "Gratitud",
       description: "Agradecer también puede volverse visual y significativo.",
-      prompt: "Un integrante recibe por chat interno una palabra relacionada con gratitud y la representa para que el equipo la adivine.",
+      prompt:
+        "Un integrante recibe por chat interno una palabra relacionada con gratitud y la representa para que el equipo la adivine.",
       time: 60,
       points: 170,
       icon: "🙌",
@@ -91,8 +102,10 @@ const challenges = {
   compasion: [
     {
       title: "Compasión",
-      description: "Comprender al otro también puede empezar con un dibujo torcido.",
-      prompt: "Un integrante recibe una palabra relacionada con empatía y apoyo. La representa y el equipo intenta descifrarla.",
+      description:
+        "Comprender al otro también puede empezar con un dibujo torcido.",
+      prompt:
+        "Un integrante recibe una palabra relacionada con empatía y apoyo. La representa y el equipo intenta descifrarla.",
       time: 60,
       points: 150,
       icon: "💞",
@@ -101,8 +114,10 @@ const challenges = {
   generosidad: [
     {
       title: "Generosidad",
-      description: "Aquí se refleja cuando alguien ofrece, comparte o acompaña.",
-      prompt: "Un integrante recibe por chat interno una palabra relacionada con generosidad. La representa y el equipo intenta acertar.",
+      description:
+        "Aquí se refleja cuando alguien ofrece, comparte o acompaña.",
+      prompt:
+        "Un integrante recibe por chat interno una palabra relacionada con generosidad. La representa y el equipo intenta acertar.",
       time: 55,
       points: 160,
       icon: "🎁",
@@ -112,7 +127,8 @@ const challenges = {
     {
       title: "Lo Contrario",
       description: "A veces lo mejor es pensar al revés para ver con claridad.",
-      prompt: "Un integrante recibe una palabra por chat interno. Debe dibujar LO CONTRARIO de esa palabra y el equipo debe adivinar cuál era la palabra CONTRARIA.",
+      prompt:
+        "Un integrante recibe una palabra por chat interno. Debe dibujar LO CONTRARIO de esa palabra y el equipo debe adivinar cuál era la palabra CONTRARIA.",
       time: 70,
       points: 180,
       icon: "🔄",
@@ -124,23 +140,73 @@ const challenges = {
 // Definición del tablero
 const boardSpaces = [
   { type: "inicio", label: "INICIO", icon: "inicio", color: "inicio" },
-  { type: "perspectiva", label: "Perspectiva", icon: "perspectiva", color: "perspectiva" },
+  {
+    type: "perspectiva",
+    label: "Perspectiva",
+    icon: "perspectiva",
+    color: "perspectiva",
+  },
   { type: "humildad", label: "Humildad", icon: "humildad", color: "humildad" },
   { type: "union", label: "Unión", icon: "union", color: "union" },
   { type: "humor", label: "Humor", icon: "humor", color: "humor" },
-  { type: "aceptacion", label: "Aceptación", icon: "aceptacion", color: "aceptacion" },
-  { type: "retoequipo", label: "Reto en Equipo", icon: "retoequipo", color: "retoequipo" },
-  { type: "obstaculo", label: "Obstáculo", icon: "obstaculo", color: "obstaculo" },
+  {
+    type: "aceptacion",
+    label: "Aceptación",
+    icon: "aceptacion",
+    color: "aceptacion",
+  },
+  {
+    type: "retoequipo",
+    label: "Reto en Equipo",
+    icon: "retoequipo",
+    color: "retoequipo",
+  },
+  {
+    type: "obstaculo",
+    label: "Obstáculo",
+    icon: "obstaculo",
+    color: "obstaculo",
+  },
   { type: "perdon", label: "Perdón", icon: "perdon", color: "perdon" },
   { type: "gratitud", label: "Gratitud", icon: "gratitud", color: "gratitud" },
   { type: "union", label: "Unión", icon: "union", color: "union" },
-  { type: "compasion", label: "Compasión", icon: "compasion", color: "compasion" },
-  { type: "locontrario", label: "Lo Contrario", icon: "locontrario", color: "locontrario" },
-  { type: "generosidad", label: "Generosidad", icon: "generosidad", color: "generosidad" },
-  { type: "perspectiva", label: "Perspectiva", icon: "perspectiva", color: "perspectiva" },
-  { type: "obstaculo", label: "Obstáculo", icon: "obstaculo", color: "obstaculo" },
+  {
+    type: "compasion",
+    label: "Compasión",
+    icon: "compasion",
+    color: "compasion",
+  },
+  {
+    type: "locontrario",
+    label: "Lo Contrario",
+    icon: "locontrario",
+    color: "locontrario",
+  },
+  {
+    type: "generosidad",
+    label: "Generosidad",
+    icon: "generosidad",
+    color: "generosidad",
+  },
+  {
+    type: "perspectiva",
+    label: "Perspectiva",
+    icon: "perspectiva",
+    color: "perspectiva",
+  },
+  {
+    type: "obstaculo",
+    label: "Obstáculo",
+    icon: "obstaculo",
+    color: "obstaculo",
+  },
   { type: "gratitud", label: "Gratitud", icon: "gratitud", color: "gratitud" },
-  { type: "trampa", label: "Juntos pero no revueltos", icon: "trampa", color: "trampa" },
+  {
+    type: "trampa",
+    label: "Juntos pero no revueltos",
+    icon: "trampa",
+    color: "trampa",
+  },
   { type: "meta", label: "META", icon: "meta", color: "meta" },
 ];
 
@@ -159,7 +225,7 @@ function getRandomDiceValue(max = DICE_MAX) {
 function getBiasedDiceValue(lastValue, max = DICE_MAX) {
   // Solo 10% de probabilidad de que salga el mismo número
   const avoidRepeat = Math.random() > 0.1;
-  
+
   if (avoidRepeat && lastValue !== null) {
     // Crear array con todos los números excepto el último
     const availableNumbers = [];
@@ -169,9 +235,11 @@ function getBiasedDiceValue(lastValue, max = DICE_MAX) {
       }
     }
     // Retornar un número aleatorio del array
-    return availableNumbers[Math.floor(Math.random() * availableNumbers.length)];
+    return availableNumbers[
+      Math.floor(Math.random() * availableNumbers.length)
+    ];
   }
-  
+
   // Si no evitamos repetición, generar normal
   return getRandomDiceValue(max);
 }
@@ -192,7 +260,7 @@ function addPointsToTeam(team, points) {
 function createBoard() {
   const board = document.getElementById("board");
   const totalSpaces = boardSpaces.length;
-  const radius = 280;
+  const radius = 330;
 
   boardSpaces.forEach((space, index) => {
     const angle = (index / totalSpaces) * 2 * Math.PI - Math.PI / 2;
@@ -201,8 +269,8 @@ function createBoard() {
 
     const spaceDiv = document.createElement("div");
     spaceDiv.className = `board-space ${space.color}`;
-    spaceDiv.style.left = `${x - 45}px`;
-    spaceDiv.style.top = `${y - 45}px`;
+    spaceDiv.style.left = `${x - 40}px`;
+    spaceDiv.style.top = `${y - 40}px`;
     spaceDiv.innerHTML = `
       <div class="icon icon-${space.icon}"></div>
       <div class="label">${space.label}</div>
@@ -245,35 +313,36 @@ function updateMarkers() {
 // Lanzar dado
 function rollDice() {
   if (gameState.rolling) return;
-  
+
   // Verificar si el turno está bloqueado
-  const isBlocked = gameState.currentTeam === 1 
-    ? gameState.team1TurnBlocked 
-    : gameState.team2TurnBlocked;
-  
+  const isBlocked =
+    gameState.currentTeam === 1
+      ? gameState.team1TurnBlocked
+      : gameState.team2TurnBlocked;
+
   if (isBlocked) {
     Swal.fire({
-      title: '🚫 Turno Bloqueado',
+      title: "🚫 Turno Bloqueado",
       text: `El Equipo ${gameState.currentTeam} pierde este turno por haber perdido el Reto en Equipo`,
-      icon: 'warning',
+      icon: "warning",
       timer: 3000,
-      showConfirmButton: false
+      showConfirmButton: false,
     });
-    
+
     // Desbloquear y cambiar turno
     if (gameState.currentTeam === 1) {
       gameState.team1TurnBlocked = false;
     } else {
       gameState.team2TurnBlocked = false;
     }
-    
+
     setTimeout(() => {
       switchTeam();
     }, 3000);
-    
+
     return;
   }
-  
+
   gameState.rolling = true;
 
   const dice = document.getElementById("dice");
@@ -294,15 +363,12 @@ function rollDice() {
     if (count < fakeRolls) {
       requestAnimationFrame(() => setTimeout(animate, 80));
     } else {
-
       const team1Pos = gameState.team1Position;
       const team2Pos = gameState.team2Position;
       const diff = Math.abs(team1Pos - team2Pos);
 
-      const currentTeamPos =
-        gameState.currentTeam === 1 ? team1Pos : team2Pos;
-      const otherTeamPos =
-        gameState.currentTeam === 1 ? team2Pos : team1Pos;
+      const currentTeamPos = gameState.currentTeam === 1 ? team1Pos : team2Pos;
+      const otherTeamPos = gameState.currentTeam === 1 ? team2Pos : team1Pos;
 
       const isLeading = currentTeamPos > otherTeamPos;
       const shouldNerf = isLeading && diff >= 3;
@@ -313,9 +379,10 @@ function rollDice() {
         // Solo puede sacar 1 o 2
         finalValue = Math.random() < 0.5 ? 1 : 2;
       } else {
-        finalValue = gameState.lastRollValue !== null 
-          ? getBiasedDiceValue(gameState.lastRollValue, DICE_MAX)
-          : getRandomDiceValue(DICE_MAX);
+        finalValue =
+          gameState.lastRollValue !== null
+            ? getBiasedDiceValue(gameState.lastRollValue, DICE_MAX)
+            : getRandomDiceValue(DICE_MAX);
       }
 
       diceValueEl.textContent = finalValue;
@@ -339,9 +406,10 @@ function rollDice() {
 
 // Mover jugador
 function movePlayer(steps) {
-  const currentPos = gameState.currentTeam === 1 
-    ? gameState.team1Position 
-    : gameState.team2Position;
+  const currentPos =
+    gameState.currentTeam === 1
+      ? gameState.team1Position
+      : gameState.team2Position;
   const newPos = Math.min(currentPos + steps, boardSpaces.length - 1);
 
   if (gameState.currentTeam === 1) {
@@ -364,50 +432,58 @@ function handleSpaceLanding(position) {
   if (space.type === "inicio" || space.type === "meta") {
     if (space.type === "meta") {
       addPointsToTeam(gameState.currentTeam, 1000);
-      alert(`🏆 ¡El Equipo ${gameState.currentTeam} ha llegado a la META y gana 1000 puntos!`);
+      alert(
+        `🏆 ¡El Equipo ${gameState.currentTeam} ha llegado a la META y gana 1000 puntos!`,
+      );
     }
     switchTeam();
   } else if (space.type === "union") {
     // Ambos equipos ganan puntos
     addPointsToTeam(1, 75);
     addPointsToTeam(2, 75);
-    alert('🤝 ¡Casilla de Unión! Ambos equipos ganan 75 puntos. "Yo soy porque nosotros somos"');
+    alert(
+      '🤝 ¡Casilla de Unión! Ambos equipos ganan 75 puntos. "Yo soy porque nosotros somos"',
+    );
     switchTeam();
   } else if (space.type === "obstaculo") {
     // Verificar si ya cayó en este obstáculo
-    const lastObstaclePos = gameState.currentTeam === 1 
-      ? gameState.team1LastObstaclePosition 
-      : gameState.team2LastObstaclePosition;
-    
+    const lastObstaclePos =
+      gameState.currentTeam === 1
+        ? gameState.team1LastObstaclePosition
+        : gameState.team2LastObstaclePosition;
+
     if (lastObstaclePos === position) {
       // Ya cayó aquí antes, solo cambiar turno sin penalización
       alert("⚠️ Ya pasaste por este obstáculo. ¡Continúa tu camino!");
       switchTeam();
       return;
     }
-    
+
     // Guardar la posición del obstáculo
     if (gameState.currentTeam === 1) {
       gameState.team1LastObstaclePosition = position;
     } else {
       gameState.team2LastObstaclePosition = position;
     }
-    
+
     // Retroceder 2 casillas
-    const currentPos = gameState.currentTeam === 1 
-      ? gameState.team1Position 
-      : gameState.team2Position;
+    const currentPos =
+      gameState.currentTeam === 1
+        ? gameState.team1Position
+        : gameState.team2Position;
     const newPos = Math.max(0, currentPos - 2);
-    
+
     if (gameState.currentTeam === 1) {
       gameState.team1Position = newPos;
     } else {
       gameState.team2Position = newPos;
     }
-    
+
     updateMarkers();
-    
-    alert("⚠️ Obstáculo: El miedo, la ira o la tristeza bloquean la alegría. Retroceden 2 casillas, pierden 50 puntos y un turno.");
+
+    alert(
+      "⚠️ Obstáculo: El miedo, la ira o la tristeza bloquean la alegría. Retroceden 2 casillas, pierden 50 puntos y un turno.",
+    );
     addPointsToTeam(gameState.currentTeam, -50);
     switchTeam();
   } else if (space.type === "trampa") {
@@ -421,7 +497,7 @@ function handleSpaceLanding(position) {
     } else {
       gameState.team2LastObstaclePosition = null;
     }
-    
+
     // Mostrar desafío del pilar
     showChallenge(space.type);
   }
@@ -433,7 +509,7 @@ function handleSpaceLanding(position) {
 function handleRetoEquipo() {
   const team1Pos = gameState.team1Position;
   const team2Pos = gameState.team2Position;
-  
+
   Swal.fire({
     title: "⚔️ ¡RETO EN EQUIPO!",
     html: `
@@ -452,24 +528,24 @@ function handleRetoEquipo() {
         <p style="margin-top: 20px; font-size: 1.2em; color: #fbbf24;"><strong>💡 ¡Que empiece la batalla de dibujo!</strong></p>
       </div>
     `,
-    icon: 'info',
-    width: '700px',
-    confirmButtonText: '🎨 Iniciar Reto',
+    icon: "info",
+    width: "700px",
+    confirmButtonText: "🎨 Iniciar Reto",
     allowOutsideClick: false,
-    allowEscapeKey: false
+    allowEscapeKey: false,
   }).then(() => {
     Swal.fire({
       title: "🏁 ¿Qué equipo ganó?",
       html: `
         <p style="font-size: 1.2em; margin-bottom: 20px;">El moderador debe indicar qué equipo envió primero la respuesta correcta por Teams</p>
       `,
-      icon: 'question',
+      icon: "question",
       showDenyButton: true,
       showCancelButton: false,
-      confirmButtonText: '🔵 Equipo 1 Ganó',
-      denyButtonText: '🔴 Equipo 2 Ganó',
+      confirmButtonText: "🔵 Equipo 1 Ganó",
+      denyButtonText: "🔴 Equipo 2 Ganó",
       allowOutsideClick: false,
-      allowEscapeKey: false
+      allowEscapeKey: false,
     }).then((result) => {
       if (result.isConfirmed) {
         // Equipo 1 ganó
@@ -487,10 +563,10 @@ function applyRetoEquipoResult(winnerTeam) {
   const team1Pos = gameState.team1Position;
   const team2Pos = gameState.team2Position;
   const loserTeam = winnerTeam === 1 ? 2 : 1;
-  
-  let resultMessage = '';
-  let resultIcon = 'success';
-  
+
+  let resultMessage = "";
+  let resultIcon = "success";
+
   // Determinar si el ganador va detrás o adelante
   if (winnerTeam === 1) {
     if (team1Pos < team2Pos) {
@@ -517,16 +593,16 @@ El Equipo 1 retrocede a la casilla ${team2Pos + 1} (misma posición del Equipo 2
 El Equipo 1 pierde su próximo turno`;
     }
   }
-  
+
   updateMarkers();
-  
+
   Swal.fire({
-    title: '⚔️ Resultado del Reto',
+    title: "⚔️ Resultado del Reto",
     text: resultMessage,
     icon: resultIcon,
     timer: 4000,
     showConfirmButton: true,
-    confirmButtonText: 'Continuar'
+    confirmButtonText: "Continuar",
   }).then(() => {
     switchTeam();
   });
@@ -612,7 +688,8 @@ function handleTrampaSpace() {
 // Mostrar desafío
 function showChallenge(pillarType) {
   const pillarChallenges = challenges[pillarType];
-  const challenge = pillarChallenges[Math.floor(Math.random() * pillarChallenges.length)];
+  const challenge =
+    pillarChallenges[Math.floor(Math.random() * pillarChallenges.length)];
 
   gameState.currentChallenge = challenge;
 
@@ -623,9 +700,10 @@ function showChallenge(pillarType) {
 
   const modalIcon = document.getElementById("modalIcon");
   modalIcon.className = `modal-icon icon icon-${pillarType}`;
-  
+
   document.getElementById("modalTitle").textContent = challenge.title;
-  document.getElementById("challengeDescription").textContent = challenge.description;
+  document.getElementById("challengeDescription").textContent =
+    challenge.description;
   document.getElementById("challengePrompt").textContent = challenge.prompt;
   document.getElementById("challengePoints").textContent = challenge.points;
 

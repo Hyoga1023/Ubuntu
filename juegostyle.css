@@ -1,17 +1,19 @@
 :root {
-  --color-1: #ff8f8f;
-  --color-2: #eef296;
-  --color-3: #9ade7b;
-  --color-4: #508d69;
+  --color-1: #30364F;
+  --color-2: #ACBAC4;
+  --color-3: #E1D9BC;
+  --color-4: #F0F0DB;
   --color-negro: #000000;
   --color-blanco: #ffffff;
   --spacing: 1rem;
 }
-.kaushan-script-regular {
-  font-family: Arial, cursive;
-  font-weight: 300;
+
+.indie-flower-regular {
+  font-family: "Indie Flower", cursive;
+  font-weight: 400;
   font-style: normal;
 }
+
 * {
   margin: 0;
   padding: 0;
@@ -19,8 +21,9 @@
 }
 
 body {
-  font-family: Arial, cursive;
-  background: linear-gradient(135deg, #1e1b4b 0%, #7c2d92 50%, #1e1b4b 100%);
+  font-family: "Indie Flower", cursive;
+  background-color: var(--color-3);
+  color: var(--color-1);
   min-height: 100vh;
   padding: 20px;
   overflow-x: hidden;
@@ -39,23 +42,21 @@ body {
 
 .header h1 {
   font-size: 3.5em;
-  background: linear-gradient(45deg, #60a5fa, #a78bfa, #f472b6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-color: var(--color-1);
   background-clip: text;
   margin-bottom: 10px;
   text-shadow: 0 0 30px rgba(167, 139, 250, 0.5);
 }
 
 .header p {
-  color: #e0e7ff;
+  color: var(--color-1);
   font-size: 1.3em;
 }
 
 .header .quote {
   margin-top: 15px;
   font-style: italic;
-  color: #fbbf24;
+  color: var(--color-1);
   font-size: 1.1em;
 }
 
@@ -79,11 +80,13 @@ body {
 }
 
 .team1 {
-  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  background: linear-gradient(135deg, var(--color-1), #51597a);
+  border: solid 2px var(--color-4);
 }
 
 .team2 {
-  background: linear-gradient(135deg, #ec4899, #f43f5e);
+  background: linear-gradient(135deg, var(--color-2), var(--color-3));
+  border: solid 2px var(--color-1);
 }
 
 .team-header {
@@ -93,21 +96,35 @@ body {
   margin-bottom: 10px;
 }
 
-.team-name {
+.team-name1 {
   font-size: 2em;
   font-weight: bold;
-  color: white;
+  color: var(--color-4);
 }
 
-.team-score {
+.team-score1 {
   font-size: 2.5em;
   font-weight: bold;
-  color: white;
+  color: var(--color-4);
+}
+.team-name2 {
+  font-size: 2em;
+  font-weight: bold;
+  color: var(--color-1);
 }
 
-.team-info {
-  color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1em;
+.team-score2 {
+  font-size: 2.5em;
+  font-weight: bold;
+  color: var(--color-1);
+}
+.team-info1 {
+  color: var(--color-4);
+  font-size: 1.5em;
+}
+.team-info2 {
+  color: var(--color-1);
+  font-size: 1.5em;
 }
 
 .game-area {
@@ -135,8 +152,8 @@ body {
 
 .board-space {
   position: absolute;
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 15px;
   display: flex;
   flex-direction: column;
@@ -157,9 +174,12 @@ body {
 }
 
 .board-space .label {
-  font-size: 0.75em;
+  font-size: 1em;
   font-weight: bold;
-  color: white;
+  border-radius: 8px;
+  padding: 0 5px;
+  background-color: var(--color-2);
+  color: var(--color-negro);
   text-align: center;
 }
 
@@ -181,16 +201,13 @@ body {
 }
 
 .marker-team1 {
-  background: #3b82f6;
-  top: -15px;
-  left: -15px;
+  background: red;
 }
 
 .marker-team2 {
-  background: #ec4899;
-  top: -15px;
-  right: -15px;
+  background: blue;
 }
+
 
 .control-panel {
   background: rgba(255, 255, 255, 0.05);
@@ -205,7 +222,7 @@ body {
 .current-turn {
   text-align: center;
   padding: 20px;
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, var(--color-1), #4a516e);
   border-radius: 20px;
 }
 
@@ -232,7 +249,8 @@ body {
 .dice {
   width: 120px;
   height: 120px;
-  background: white;
+  background: var(--color-4);
+  border: 3px solid var(--color-1);
   border-radius: 20px;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
   display: flex;
@@ -241,7 +259,6 @@ body {
   margin: 0 auto 20px;
   cursor: pointer;
   transition: all 0.3s;
-  border: 3px solid #8b5cf6;
 }
 
 .dice:hover {
@@ -255,26 +272,12 @@ body {
 .dice-value {
   font-size: 4em;
   font-weight: bold;
-  color: #8b5cf6;
-}
-.timer-btn{
-  background:#d97706;
-  border:none;
-  padding:15px 25px;
-  border-radius:10px;
-  font-size:18px;
-  color:white;
-  cursor:pointer;
-  transition:transform .2s ease, background .3s ease;
-}
-.timer-btn:hover{
-  background:#b45309;
-  transform:scale(1.05);
+  color: var(--color-1);
 }
 
 .roll-btn {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
-  color: white;
+  background: linear-gradient(135deg, var(--color-1), #4a516e);
+  color: var(--color-blanco);
   border: none;
   padding: 15px 30px;
   border-radius: 15px;
@@ -286,7 +289,7 @@ body {
 
 .roll-btn:hover:not(:disabled) {
   transform: translateY(-3px);
-  box-shadow: 0 10px 25px rgba(139, 92, 246, 0.4);
+  box-shadow: 0 10px 25px rgba(48, 54, 79, 0.4);
 }
 
 .roll-btn:disabled {
@@ -301,7 +304,7 @@ body {
 }
 
 .pillars-info h4 {
-  color: #fbbf24;
+  color: var(--color-1);
   margin-bottom: 15px;
   font-size: 1.2em;
 }
@@ -311,8 +314,8 @@ body {
   margin-bottom: 5px;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.05);
-  color: white;
-  font-size: 0.9em;
+  color: var(--color-1);
+  font-size: 1em;
 }
 
 /* Modal de desafío */
@@ -335,6 +338,8 @@ body {
 }
 
 .modal-content {
+  background: var(--color-1);
+  color: var(--color-blanco);
   max-width: 700px;
   width: 90%;
   border-radius: 30px;
@@ -358,7 +363,7 @@ body {
 .modal-title {
   font-size: 2.5em;
   font-weight: bold;
-  color: white;
+  color: var(--color-negro);
   margin-bottom: 10px;
 }
 
@@ -371,7 +376,7 @@ body {
   border-radius: 15px;
   font-size: 1.5em;
   font-weight: bold;
-  color: white;
+  color: var(--color-negro);
 }
 
 .timer.warning {
@@ -380,7 +385,7 @@ body {
 }
 
 .challenge-content {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.12);
   backdrop-filter: blur(10px);
   border-radius: 20px;
   padding: 25px;
@@ -388,25 +393,25 @@ body {
 }
 
 .challenge-description {
-  color: white;
+  color: var(--color-negro);
   font-size: 1.3em;
   margin-bottom: 20px;
 }
 
 .challenge-prompt {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   padding: 20px;
   border-radius: 15px;
   font-size: 1.2em;
   font-weight: bold;
-  color: white;
+  color: var(--color-negro);
 }
 
 .challenge-points {
   display: flex;
   align-items: center;
   gap: 10px;
-  color: white;
+  color: var(--color-negro);
   font-size: 1.5em;
   font-weight: bold;
   margin-bottom: 20px;
@@ -495,42 +500,66 @@ body {
 }
 
 /* Colores para los pilares */
-.perspectiva {
-  background: linear-gradient(135deg, #3b82f6, #2dd4bf);
-}
-.humildad {
-  background: linear-gradient(135deg, #8b5cf6, #a78bfa);
-}
-.humor {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
-}
-.aceptacion {
-  background: linear-gradient(135deg, #06b6d4, #0891b2);
-}
-.perdon {
-  background: linear-gradient(135deg, #ec4899, #f472b6);
-}
-.gratitud {
-  background: linear-gradient(135deg, #f59e0b, #fb923c);
-}
-.compasion {
-  background: linear-gradient(135deg, #a78bfa, #c084fc);
-}
-.generosidad {
-  background: linear-gradient(135deg, #10b981, #34d399);
-}
 .inicio {
-  background: linear-gradient(135deg, #22c55e, #16a34a);
+  background: linear-gradient(135deg, var(--color-1), #4a516e);
 }
+
 .meta {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  background: linear-gradient(135deg, #4a516e, var(--color-1));
 }
-.obstaculo {
-  background: linear-gradient(135deg, #ef4444, #dc2626);
+
+.perspectiva {
+  background: linear-gradient(135deg, var(--color-2), #8fa1ad);
 }
+
+.humildad {
+  background: linear-gradient(135deg, #b8c4cc, var(--color-2));
+}
+
+.humor {
+  background: linear-gradient(135deg, #d6ccb0, var(--color-3));
+}
+
+.aceptacion {
+  background: linear-gradient(135deg, var(--color-3), #f0ead2);
+}
+
+.perdon {
+  background: linear-gradient(135deg, #9faab3, var(--color-2));
+}
+
+.gratitud {
+  background: linear-gradient(135deg, #e8e0c7, var(--color-4));
+}
+
+.compasion {
+  background: linear-gradient(135deg, #cfd7dd, var(--color-2));
+}
+
+.generosidad {
+  background: linear-gradient(135deg, var(--color-4), #e6e2cd);
+}
+
 .union {
-  background: linear-gradient(135deg, #8b5cf6, #ec4899);
+  background: linear-gradient(135deg, var(--color-1), var(--color-2));
 }
+
+.obstaculo {
+  background: linear-gradient(135deg, #5a2a2a, #7a3a3a);
+}
+
+.trampa {
+  background: linear-gradient(135deg, #6b3b2a, #8a4a32);
+}
+
+.retoequipo {
+  background: linear-gradient(135deg, #4a516e, var(--color-1));
+}
+
+.locontrario {
+  background: linear-gradient(135deg, #6a7090, #30364f);
+}
+
 .icon {
   width: 60px;
   height: 60px;
@@ -643,10 +672,10 @@ footer {
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  color: var(--color-blanco);
+  color: var(--color-negro);
 }
 
 footer img{
-  width: 110px;
+  width: 120px;
   height: auto;
 }
