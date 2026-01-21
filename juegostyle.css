@@ -313,8 +313,8 @@ body {
   padding: 8px;
   margin-bottom: 5px;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--color-1);
+  background: var(--color-1);
+  color: var(--color-4);
   font-size: 1em;
 }
 
