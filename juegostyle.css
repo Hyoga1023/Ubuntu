@@ -435,7 +435,7 @@ body {
 
 .btn-success {
   background: #10b981;
-  color: white;
+  color: var(--color-1);
 }
 
 .btn-success:hover {
@@ -445,7 +445,7 @@ body {
 
 .btn-fail {
   background: #ef4444;
-  color: white;
+  color: var(--color-3);
 }
 
 .btn-fail:hover {
