@@ -30,6 +30,7 @@ body {
   background-repeat: no-repeat; 
   background-position: center; 
   background-attachment: fixed; 
+  cursor: url("img/puntero1.png"), auto;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
