@@ -23,6 +23,7 @@
 body {
   font-family: "Indie Flower", cursive;
   background-color: var(--color-3);
+  cursor: url("img/puntero.png"), auto;
   color: var(--color-1);
   min-height: 100vh;
   padding: 20px;
