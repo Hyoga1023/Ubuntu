@@ -15,6 +15,209 @@ let gameState = {
   team2TurnBlocked: false,
 };
 
+// ============= SISTEMA DE AUDIO (DECLARADO AL INICIO) =============
+
+// Gestor de audio (declarado como variable global en window)
+window.audioManager = {
+  challengeSongs: [
+    "audio/the_benny_hill_show.mp3",
+    "audio/monkeys_spinning_monkeys.mp3",
+    "audio/curb_your_enthusiasm.mp3",
+  ],
+  lastChallengeIndex: null,
+  currentAudio: null,
+  audioEnabled: true,
+
+  // Precargar audios
+  preloadAudio() {
+    console.log("🎵 Precargando audios...");
+
+    this.missionImpossible = new Audio("audio/mission_impossible.mp3");
+    this.jingleAllTheWay = new Audio("audio/jingle_all_the_way.mp3");
+    this.elJuegoDelCalamar = new Audio("audio/el_juego_del_calamar.mp3");
+
+    this.missionImpossible.loop = false;
+    this.jingleAllTheWay.loop = false;
+    this.elJuegoDelCalamar.loop = false;
+
+    this.missionImpossible.addEventListener("loadeddata", () => {
+      console.log("✅ Mission Impossible cargado");
+    });
+    this.missionImpossible.addEventListener("error", (e) => {
+      console.error("❌ Error cargando Mission Impossible:", e);
+    });
+
+    this.elJuegoDelCalamar.addEventListener("loadeddata", () => {
+      console.log("✅ El Juego del Calamar cargado");
+    });
+    this.elJuegoDelCalamar.addEventListener("error", (e) => {
+      console.error("❌ Error cargando El Juego del Calamar:", e);
+    });
+
+    this.jingleAllTheWay.addEventListener("loadeddata", () => {
+      console.log("✅ Jingle All The Way cargado");
+    });
+    this.jingleAllTheWay.addEventListener("error", (e) => {
+      console.error("❌ Error cargando Jingle All The Way:", e);
+    });
+
+    console.log("🎵 Audios preconfigurados");
+  },
+
+  getRandomChallengeSong() {
+    let availableIndices = [0, 1, 2];
+
+    if (this.lastChallengeIndex !== null) {
+      availableIndices = availableIndices.filter(
+        (i) => i !== this.lastChallengeIndex,
+      );
+    }
+
+    const randomIndex =
+      availableIndices[Math.floor(Math.random() * availableIndices.length)];
+    this.lastChallengeIndex = randomIndex;
+
+    return this.challengeSongs[randomIndex];
+  },
+
+  playChallenge() {
+    console.log("🎵 playChallenge() llamado");
+
+    if (!this.audioEnabled) {
+      console.log("🔇 Audio deshabilitado");
+      return;
+    }
+
+    this.stop();
+
+    const songUrl = this.getRandomChallengeSong();
+    console.log("🎵 Intentando reproducir:", songUrl);
+
+    this.currentAudio = new Audio(songUrl);
+    this.currentAudio.volume = 0.6;
+
+    this.currentAudio.addEventListener("loadeddata", () => {
+      console.log("✅ Audio de desafío cargado:", songUrl);
+    });
+
+    this.currentAudio.addEventListener("error", (e) => {
+      console.error("❌ Error cargando audio de desafío:", songUrl, e);
+    });
+
+    this.currentAudio
+      .play()
+      .then(() => {
+        console.log("▶️ Reproduciendo:", songUrl);
+      })
+      .catch((err) => {
+        console.error("❌ Error al reproducir:", err);
+      });
+  },
+
+  playElJuegoDelCalamar() {
+    console.log('🎵 Reproduciendo El Juego del Calamar');
+    
+    if (!this.audioEnabled) {
+      console.log('🔇 Audio deshabilitado');
+      return;
+    }
+    
+    this.stop();
+    this.currentAudio = this.elJuegoDelCalamar;
+    this.currentAudio.currentTime = 0;
+    this.currentAudio.volume = 0.5;
+    
+    this.currentAudio.play()
+      .then(() => {
+        console.log('▶️ El Juego del Calamar sonando');
+      })
+      .catch(err => {
+        console.error('❌ Error al reproducir El Juego del Calamar:', err);
+      });
+  },
+
+  playMissionImpossible() {
+    console.log("🎵 Reproduciendo Mission Impossible");
+
+    if (!this.audioEnabled) {
+      console.log("🔇 Audio deshabilitado");
+      return;
+    }
+
+    this.stop();
+    this.currentAudio = this.missionImpossible;
+    this.currentAudio.currentTime = 0;
+    this.currentAudio.volume = 0.5;
+
+    this.currentAudio
+      .play()
+      .then(() => {
+        console.log("▶️ Mission Impossible sonando");
+      })
+      .catch((err) => {
+        console.error("❌ Error al reproducir Mission Impossible:", err);
+      });
+  },
+
+  playJingleAllTheWay() {
+    console.log("🎵 Reproduciendo Jingle All The Way");
+
+    if (!this.audioEnabled) {
+      console.log("🔇 Audio deshabilitado");
+      return;
+    }
+
+    this.stop();
+    this.currentAudio = this.jingleAllTheWay;
+    this.currentAudio.currentTime = 0;
+    this.currentAudio.volume = 0.8;
+
+    this.currentAudio
+      .play()
+      .then(() => {
+        console.log("▶️ Jingle All The Way sonando");
+      })
+      .catch((err) => {
+        console.error("❌ Error al reproducir Jingle All The Way:", err);
+      });
+  },
+
+  stop() {
+    if (this.currentAudio) {
+      console.log("⏹️ Deteniendo audio");
+      this.currentAudio.pause();
+      this.currentAudio.currentTime = 0;
+    }
+  },
+
+  // Prueba de audio (para desbloquear autoplay)
+  testAudio() {
+    console.log("🔊 Prueba de audio iniciada");
+    const testSound = new Audio("audio/the_benny_hill_show.mp3");
+    testSound.volume = 0.3;
+    testSound
+      .play()
+      .then(() => {
+        console.log("✅ Audio funcionando correctamente");
+        testSound.pause();
+        alert(
+          "✅ Audio habilitado! Ahora el juego reproducirá música automáticamente.",
+        );
+      })
+      .catch((err) => {
+        console.error("❌ Error en prueba de audio:", err);
+        alert(
+          "❌ No se pudo reproducir el audio. Revisa la consola (F12) para más detalles.",
+        );
+      });
+  }
+};
+
+// Inicializar audios inmediatamente
+window.audioManager.preloadAudio();
+
+/*-------------------------------------------------------------------------------------------------------------- */
+
 // Configuración del dado
 const DICE_MAX = 3;
 
@@ -137,7 +340,6 @@ const challenges = {
 };
 
 // Definición del tablero
-// Definición del tablero
 const boardSpaces = [
   { type: "inicio", label: "INICIO", icon: "inicio", color: "inicio" },
   {
@@ -195,18 +397,18 @@ const boardSpaces = [
     color: "perspectiva",
   },
   {
+    type: "trampa",
+    label: "Juntos pero no revueltos",
+    icon: "trampa",
+    color: "trampa",
+  },
+  {
     type: "obstaculo",
     label: "Obstáculo",
     icon: "obstaculo",
     color: "obstaculo",
   },
   { type: "gratitud", label: "Gratitud", icon: "gratitud", color: "gratitud" },
-  {
-    type: "trampa",
-    label: "Juntos pero no revueltos",
-    icon: "trampa",
-    color: "trampa",
-  },
   { type: "meta", label: "META", icon: "meta", color: "meta" },
 ];
 
@@ -288,7 +490,7 @@ function updateMarkers() {
   // Limpiar marcadores anteriores
   document.querySelectorAll(".team-marker").forEach((m) => m.remove());
 
-  // Función helper para crear marcador
+  // Función helper para crear marcadores
   const createMarker = (teamNum, position) => {
     const space = document.getElementById(`space-${position}`);
     if (space) {
@@ -402,6 +604,7 @@ function rollDice() {
 
   animate();
 }
+
 // ============= MOVIMIENTO =============
 
 // Mover jugador
@@ -431,6 +634,9 @@ function handleSpaceLanding(position) {
 
   if (space.type === "inicio" || space.type === "meta") {
     if (space.type === "meta") {
+      // 🎵 Reproducir Jingle All The Way
+      window.audioManager.playJingleAllTheWay();
+
       addPointsToTeam(gameState.currentTeam, 1000);
       alert(
         `🏆 ¡El Equipo ${gameState.currentTeam} ha llegado a la META y gana 1000 puntos!`,
@@ -510,6 +716,9 @@ function handleRetoEquipo() {
   const team1Pos = gameState.team1Position;
   const team2Pos = gameState.team2Position;
 
+  // 🎵 Reproducir Mission Impossible
+  window.audioManager.playMissionImpossible();
+
   Swal.fire({
     title: "⚔️ ¡RETO EN EQUIPO!",
     html: `
@@ -547,6 +756,9 @@ function handleRetoEquipo() {
       allowOutsideClick: false,
       allowEscapeKey: false,
     }).then((result) => {
+      // 🎵 Detener música cuando se resuelve el reto
+      window.audioManager.stop();
+
       if (result.isConfirmed) {
         // Equipo 1 ganó
         applyRetoEquipoResult(1);
@@ -615,6 +827,9 @@ function handleTrampaSpace() {
   const victimPos =
     victimTeam === 1 ? gameState.team1Position : gameState.team2Position;
 
+  // 🎵 REPRODUCIR LA CANCIÓN DEL JUEGO DEL CALAMAR
+  window.audioManager.playElJuegoDelCalamar();
+
   Swal.fire({
     title: "🎯 ¡Juntos pero no revueltos!",
     html: `
@@ -656,6 +871,9 @@ function handleTrampaSpace() {
           showConfirmButton: false,
         });
 
+        // 🎵 Detener música cuando termina la acción
+        window.audioManager.stop();
+
         setTimeout(() => switchTeam(), 2000);
         return;
       }
@@ -680,7 +898,11 @@ function handleTrampaSpace() {
         showConfirmButton: false,
       });
 
-      setTimeout(() => switchTeam(), 2000);
+      // 🎵 Detener música después de mostrar el resultado
+      setTimeout(() => {
+        window.audioManager.stop();
+        switchTeam();
+      }, 2000);
     }
   });
 }
@@ -723,6 +945,10 @@ function startModalTimer() {
 
   modalTimeLeft = parseInt(timeSpan.textContent);
 
+  // 🎵 Reproducir música de desafío
+  console.log("🎬 Iniciando timer y reproduciendo música");
+  window.audioManager.playChallenge();
+
   modalInterval = setInterval(() => {
     modalTimeLeft--;
     timeSpan.textContent = modalTimeLeft;
@@ -738,6 +964,9 @@ function startModalTimer() {
 function finishChallengeByTime() {
   const modal = document.getElementById("challengeModal");
   modal.classList.remove("show");
+
+  // 🎵 Detener música
+  window.audioManager.stop();
 
   Swal.fire({
     title: "⏱️ Tiempo terminado",
@@ -781,6 +1010,9 @@ function completeChallenge(success) {
     clearInterval(modalInterval);
     modalInterval = null;
   }
+
+  // 🎵 Detener música
+  window.audioManager.stop();
 
   const modal = document.getElementById("challengeModal");
   modal.classList.remove("show");
