@@ -548,7 +548,10 @@ body {
 .obstaculo {
   background: linear-gradient(135deg, #5a2a2a, #7a3a3a);
 }
-
+.board-space.ahoralovesahorano {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 2px solid #0f3460;
+}
 .trampa {
   background: linear-gradient(135deg, #6b3b2a, #8a4a32);
 }
@@ -587,7 +590,12 @@ body {
 .icon-aceptacion {
   background-image: url("img/aceptacion.png");
 }
-
+.icon-ahoralovesahorano {
+  background-image: url('img/conejo_sombrero.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .icon-obstaculo {
   background-image: url("img/obstaculo.png");
 }

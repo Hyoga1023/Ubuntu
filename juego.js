@@ -230,7 +230,7 @@ const challenges = {
       description:
         "Porque una buena idea también se puede dibujar, aunque no seas artista.",
       prompt:
-        "Un integrante recibe una palabra por chat interno y la representa visualmente. El equipo intenta adivinar antes de que termine el tiempo.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 150,
       icon: "🎨",
@@ -240,7 +240,7 @@ const challenges = {
       description:
         "Aquí se mide la capacidad de representar ideas sin decir ni una palabra.",
       prompt:
-        "Un integrante recibe por chat interno un concepto abstracto. Lo representa y el equipo intenta descifrarlo.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 160,
       icon: "🧠",
@@ -251,7 +251,7 @@ const challenges = {
       title: "Humildad",
       description: "Reconocer nuestras limitaciones también puede dibujarse.",
       prompt:
-        "Un integrante recibe una palabra relacionada con humildad y la representa visualmente. El equipo intenta adivinar.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 140,
       icon: "🙏",
@@ -262,7 +262,7 @@ const challenges = {
       title: "Humor - Desastre Visual Controlado",
       description: "Mientras más raro quede, mejor.",
       prompt:
-        "Un integrante recibe una palabra, la dibuja y sus compañeros deben adivinar que representa.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 150,
       icon: "🤣",
@@ -274,7 +274,7 @@ const challenges = {
       description:
         "Aceptar realidades también puede verse reflejado con trazos y creatividad.",
       prompt:
-        "Un integrante recibe una palabra relacionada con aceptación y la representa visualmente. El equipo intenta descifrarla.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 150,
       icon: "🌊",
@@ -286,7 +286,7 @@ const challenges = {
       description:
         "Aquí se representa el acto de liberar carga emocional… versión dibujo casero.",
       prompt:
-        "Un integrante recibe una palabra relacionada con perdón y la representa. El equipo debe adivinar.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 150,
       icon: "🕊️",
@@ -297,7 +297,7 @@ const challenges = {
       title: "Gratitud",
       description: "Agradecer también puede volverse visual y significativo.",
       prompt:
-        "Un integrante recibe por chat interno una palabra relacionada con gratitud y la representa para que el equipo la adivine.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 170,
       icon: "🙌",
@@ -309,7 +309,7 @@ const challenges = {
       description:
         "Comprender al otro también puede empezar con un dibujo torcido.",
       prompt:
-        "Un integrante recibe una palabra relacionada con empatía y apoyo. La representa y el equipo intenta descifrarla.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 150,
       icon: "💞",
@@ -321,7 +321,7 @@ const challenges = {
       description:
         "Aquí se refleja cuando alguien ofrece, comparte o acompaña.",
       prompt:
-        "Un integrante recibe por chat interno una palabra relacionada con generosidad. La representa y el equipo intenta acertar.",
+        "El dibujante recibira una palabra por chat interno del moderador y la dibujara para que sus compañeros la adivinen",
       time: 70,
       points: 160,
       icon: "🎁",
@@ -386,16 +386,22 @@ const boardSpaces = [
     color: "locontrario",
   },
   {
+  type: "ahoralovesahorano",
+  label: "Ahora lo ves, ¡Ahora No!",
+  icon: "ahoralovesahorano",
+  color: "ahoralovesahorano",
+  },
+  {
     type: "generosidad",
     label: "Generosidad",
     icon: "generosidad",
     color: "generosidad",
   },
   {
-    type: "perspectiva",
-    label: "Perspectiva",
-    icon: "perspectiva",
-    color: "perspectiva",
+    type: "retoequipo",
+    label: "Reto en Equipo",
+    icon: "retoequipo",
+    color: "retoequipo",
   },
   {
     type: "trampa",
@@ -697,6 +703,9 @@ function handleSpaceLanding(position) {
     handleTrampaSpace();
   } else if (space.type === "retoequipo") {
     handleRetoEquipo();
+  } else if (space.type === "ahoralovesahorano") {
+    // ← NUEVA CASILLA AGREGADA ACÁ
+    handleAhoraLoVesAhoraNo();
   } else if (challenges[space.type]) {
     // Limpiar el registro de obstáculo cuando avanzan a otra casilla
     if (gameState.currentTeam === 1) {
@@ -907,7 +916,57 @@ function handleTrampaSpace() {
     }
   });
 }
+// Manejar casilla "Ahora lo ves, Ahora No"
+function handleAhoraLoVesAhoraNo() {
+  const currentTeam = gameState.currentTeam;
+  const victimTeam = currentTeam === 1 ? 2 : 1;
 
+  // 🎵 REPRODUCIR LA CANCIÓN DEL JUEGO DEL CALAMAR
+  window.audioManager.playElJuegoDelCalamar();
+
+  Swal.fire({
+    title: '👻 ¡Ahora lo ves, Ahora No!',
+    html: `
+      <p><strong>Equipo ${currentTeam}</strong>, pueden ROBAR un jugador del <strong>Equipo ${victimTeam}</strong></p>
+      <p>¿A quién quieren traer a su equipo?</p>
+      <small style="opacity:.6">El jugador robado ahora jugará con ustedes... 😈</small>
+    `,
+    input: 'text',
+    inputPlaceholder: 'Nombre del jugador a robar',
+    icon: 'warning',
+    showCancelButton: false,
+    confirmButtonText: '🎯 Robar jugador',
+    allowOutsideClick: false,
+    allowEscapeKey: false,
+    inputValidator: (value) => {
+      if (!value) {
+        return 'Debes escribir el nombre del jugador';
+      }
+    }
+  }).then((result) => {
+    if (result.isConfirmed) {
+      const playerName = result.value;
+      
+      // 🎵 Detener música cuando se confirma el robo ← AGREGÁ ESTA LÍNEA
+      window.audioManager.stop();
+      
+      Swal.fire({
+        title: '🔄 ¡Jugador robado!',
+        html: `
+          <p><strong>${playerName}</strong> ahora pertenece al <strong>Equipo ${currentTeam}</strong></p>
+          <p>Del Equipo ${victimTeam} ➡️ Equipo ${currentTeam}</p>
+        `,
+        icon: 'success',
+        timer: 4000,
+        showConfirmButton: false
+      });
+
+      setTimeout(() => {
+        switchTeam();
+      }, 4000);
+    }
+  });
+}
 // Mostrar desafío
 function showChallenge(pillarType) {
   const pillarChallenges = challenges[pillarType];
