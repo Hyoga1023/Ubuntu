@@ -19,6 +19,7 @@ let gameState = {
 
 // Gestor de audio (declarado como variable global en window)
 window.audioManager = {
+  masterVolume: 0.03,
   challengeSongs: [
     "audio/the_benny_hill_show.mp3",
     "audio/monkeys_spinning_monkeys.mp3",
@@ -94,7 +95,7 @@ window.audioManager = {
     console.log("🎵 Intentando reproducir:", songUrl);
 
     this.currentAudio = new Audio(songUrl);
-    this.currentAudio.volume = 0.05;
+    this.currentAudio.volume = this.masterVolume;
 
     this.currentAudio.addEventListener("loadeddata", () => {
       console.log("✅ Audio de desafío cargado:", songUrl);
@@ -125,7 +126,7 @@ window.audioManager = {
     this.stop();
     this.currentAudio = this.elJuegoDelCalamar;
     this.currentAudio.currentTime = 0;
-    this.currentAudio.volume = 0.05;
+    this.currentAudio.volume = this.masterVolume;
     
     this.currentAudio.play()
       .then(() => {
@@ -147,7 +148,7 @@ window.audioManager = {
     this.stop();
     this.currentAudio = this.missionImpossible;
     this.currentAudio.currentTime = 0;
-    this.currentAudio.volume = 0.05;
+    this.currentAudio.volume = this.masterVolume;
 
     this.currentAudio
       .play()
@@ -170,7 +171,7 @@ window.audioManager = {
     this.stop();
     this.currentAudio = this.jingleAllTheWay;
     this.currentAudio.currentTime = 0;
-    this.currentAudio.volume = 0.05;
+    this.currentAudio.volume = this.masterVolume;
 
     this.currentAudio
       .play()
@@ -194,7 +195,7 @@ window.audioManager = {
   testAudio() {
     console.log("🔊 Prueba de audio iniciada");
     const testSound = new Audio("audio/the_benny_hill_show.mp3");
-    testSound.volume = 0.05;
+    testSound.volume = this.masterVolume;
     testSound
       .play()
       .then(() => {
