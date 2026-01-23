@@ -230,7 +230,7 @@ const challenges = {
         "Porque una buena idea también se puede dibujar, aunque no seas artista.",
       prompt:
         "Un integrante recibe una palabra por chat interno y la representa visualmente. El equipo intenta adivinar antes de que termine el tiempo.",
-      time: 60,
+      time: 70,
       points: 150,
       icon: "🎨",
     },
@@ -240,7 +240,7 @@ const challenges = {
         "Aquí se mide la capacidad de representar ideas sin decir ni una palabra.",
       prompt:
         "Un integrante recibe por chat interno un concepto abstracto. Lo representa y el equipo intenta descifrarlo.",
-      time: 60,
+      time: 70,
       points: 160,
       icon: "🧠",
     },
@@ -251,7 +251,7 @@ const challenges = {
       description: "Reconocer nuestras limitaciones también puede dibujarse.",
       prompt:
         "Un integrante recibe una palabra relacionada con humildad y la representa visualmente. El equipo intenta adivinar.",
-      time: 55,
+      time: 70,
       points: 140,
       icon: "🙏",
     },
@@ -262,7 +262,7 @@ const challenges = {
       description: "Mientras más raro quede, mejor.",
       prompt:
         "Un integrante recibe una palabra, la dibuja y sus compañeros deben adivinar que representa.",
-      time: 50,
+      time: 70,
       points: 150,
       icon: "🤣",
     },
@@ -274,7 +274,7 @@ const challenges = {
         "Aceptar realidades también puede verse reflejado con trazos y creatividad.",
       prompt:
         "Un integrante recibe una palabra relacionada con aceptación y la representa visualmente. El equipo intenta descifrarla.",
-      time: 55,
+      time: 70,
       points: 150,
       icon: "🌊",
     },
@@ -286,7 +286,7 @@ const challenges = {
         "Aquí se representa el acto de liberar carga emocional… versión dibujo casero.",
       prompt:
         "Un integrante recibe una palabra relacionada con perdón y la representa. El equipo debe adivinar.",
-      time: 55,
+      time: 70,
       points: 150,
       icon: "🕊️",
     },
@@ -297,7 +297,7 @@ const challenges = {
       description: "Agradecer también puede volverse visual y significativo.",
       prompt:
         "Un integrante recibe por chat interno una palabra relacionada con gratitud y la representa para que el equipo la adivine.",
-      time: 60,
+      time: 70,
       points: 170,
       icon: "🙌",
     },
@@ -309,7 +309,7 @@ const challenges = {
         "Comprender al otro también puede empezar con un dibujo torcido.",
       prompt:
         "Un integrante recibe una palabra relacionada con empatía y apoyo. La representa y el equipo intenta descifrarla.",
-      time: 60,
+      time: 70,
       points: 150,
       icon: "💞",
     },
@@ -321,7 +321,7 @@ const challenges = {
         "Aquí se refleja cuando alguien ofrece, comparte o acompaña.",
       prompt:
         "Un integrante recibe por chat interno una palabra relacionada con generosidad. La representa y el equipo intenta acertar.",
-      time: 55,
+      time: 70,
       points: 160,
       icon: "🎁",
     },
@@ -985,7 +985,7 @@ function finishChallengeByTime() {
         title: "🎉 ¡Bien hecho!",
         text: `Se sumaron ${gameState.currentChallenge.points} puntos`,
         icon: "success",
-        timer: 1200,
+        timer: 2000,
         showConfirmButton: false,
       });
     } else {
