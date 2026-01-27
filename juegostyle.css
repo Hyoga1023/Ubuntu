@@ -723,3 +723,8 @@ footer img{
   width: 120px;
   height: auto;
 }
+.div_footer{
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
